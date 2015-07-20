@@ -1,13 +1,9 @@
-import {
-  isString,
-  isNumber,
-  isDate
-} from 'ember-cli-railio-core/utils/typecheck';
-
 export function toNumber(value) {
-  if (isNumber(value)) { return value; }
-  if (isDate(value))   { return value.valueOf(); }
-  if (isString(value)) {
+  if (typeof value === 'number') { return value; }
+
+  if (value instanceof Date) { return value.valueOf(); }
+
+  if (typeof value === 'string') {
     const commaIndex = value.indexOf(',');
     const dotIndex   = value.indexOf('.');
     let parsed       = value;
