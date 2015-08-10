@@ -1,6 +1,6 @@
 {
   "name": "ember-railio-formatting",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Addon for formatting numbers and date.",
   "directories": {
     "doc": "doc",
