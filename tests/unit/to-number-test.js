@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { toNumber } from 'ember-railio-to-number';
+import { toNumber } from 'ember-railio-formatting';
 
 module('toNumber');
 

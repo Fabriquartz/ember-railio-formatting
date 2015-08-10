@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-railio-to-number'
+  name: 'ember-railio-formatting'
 };

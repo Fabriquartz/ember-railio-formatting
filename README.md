@@ -1,4 +1,4 @@
-# Ember-railio-to-number
+# Ember-railio-formatting
 
 This README outlines the details of collaborating on this Ember addon.
 

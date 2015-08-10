@@ -1,8 +1,8 @@
 /* globals blanket, module */
 
 const options = {
-  modulePrefix: 'ember-railio-to-number',
-  filter: '//.*ember-railio-to-number/.*/',
+  modulePrefix: 'ember-railio-formatting',
+  filter: '//.*ember-railio-formatting/.*/',
   antifilter: '//.*(tests|template).*/',
   loaderExclusions: [],
   enableCoverage: true,
