@@ -45,17 +45,30 @@ export function formatNumber(value, { decimals } = {}) {
 
   if (typeof value !== 'number' || isNaN(value)) { return originalValue; }
 
+  const stringValue  = value.toString();
   const integerValue = Math.floor(value);
-  const decimalValue = value - integerValue;
+
+  const decimalIndex = stringValue.indexOf('.');
+  let decimalValue = 0;
+
+  if (decimalIndex !== -1) {
+    decimalValue = parseFloat('0.' + stringValue.slice(decimalIndex + 1));
+  }
 
   const integerStringValue = addThousandSeperators(integerValue);
+  let decimalStringValue;
 
-  if (decimalValue > 0 || decimals > 0) {
-    let decimalStringValue = decimalValue.toFixed(decimals).slice(2);
-    return `${integerStringValue},${decimalStringValue}`;
-  } else {
+  if (decimals === 0 || (decimals == null && decimalValue === 0)) {
     return integerStringValue;
   }
+
+  if (decimals == null) {
+    decimalStringValue = decimalValue.toString().slice(2);
+  } else {
+    decimalStringValue = decimalValue.toFixed(decimals).slice(2);
+  }
+
+  return `${integerStringValue},${decimalStringValue}`;
 }
 
 export function formatDate(value, options) {

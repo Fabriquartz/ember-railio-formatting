@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { toNumber } from 'ember-railio-formatting';
 
-module('toNumber');
+module('Unit | toNumber');
 
 test('number 10.10 to number', function(assert) {
   assert.equal(toNumber(10.10), 10.10);
