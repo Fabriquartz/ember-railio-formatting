@@ -6,7 +6,7 @@ function addThousandSeperators(integer) {
   let string = integer.toString();
 
   while (integer >= 1000 && THOUSANDS_REGEX.test(string)) {
-    string = string.replace(THOUSANDS_REGEX, '$1.$2');
+    string = string.replace(THOUSANDS_REGEX, '$1 $2');
   }
 
   return string;
