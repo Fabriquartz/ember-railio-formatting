@@ -6,7 +6,7 @@ function addThousandSeperators(integer) {
   let string = integer.toString();
 
   while (integer >= 1000 && THOUSANDS_REGEX.test(string)) {
-    string = string.replace(THOUSANDS_REGEX, '$1.$2');
+    string = string.replace(THOUSANDS_REGEX, '$1 $2');
   }
 
   return string;
@@ -46,7 +46,7 @@ export function formatNumber(value, { decimals } = {}) {
   if (typeof value !== 'number' || isNaN(value)) { return originalValue; }
 
   const stringValue  = value.toString();
-  const integerValue = Math.floor(value);
+  const integerValue = parseInt(value);
 
   const decimalIndex = stringValue.indexOf('.');
   let decimalValue = 0;
