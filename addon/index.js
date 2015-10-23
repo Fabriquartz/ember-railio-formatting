@@ -68,7 +68,13 @@ export function formatNumber(value, { decimals } = {}) {
     decimalStringValue = decimalValue.toFixed(decimals).slice(2);
   }
 
-  return `${integerStringValue},${decimalStringValue}`;
+  let negativeZero = '';
+
+  if (integerValue === 0 && value < 0) {
+    negativeZero = '-';
+  }
+
+  return `${negativeZero}${integerStringValue},${decimalStringValue}`;
 }
 
 export function formatDate(value, options) {

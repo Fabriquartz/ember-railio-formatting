@@ -15,6 +15,10 @@ test('formatNumber formats a negative value', function(assert) {
   assert.equal(formatNumber(-3.5), '-3,5');
 });
 
+test('formatNumber formats a negative value between -1 and 0', function(assert) {
+  assert.equal(formatNumber(-0.6), '-0,6');
+});
+
 test('formatNumber formats by decimals', function(assert) {
   assert.equal(formatNumber(10.120, { decimals: 2 }), '10,12', 'slices the decimals');
   assert.equal(formatNumber(10.2, { decimals: 2 }), '10,20', 'fills the decimals');
