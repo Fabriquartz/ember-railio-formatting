@@ -1,4 +1,5 @@
-import $ from 'jquery';
+import $      from 'jquery';
+import moment from 'moment';
 
 const THOUSANDS_REGEX = /(\d+)(\d{3})/;
 
@@ -79,9 +80,17 @@ export function formatNumber(value, { decimals } = {}) {
 
 export function formatDate(value, options) {
   if (!(value instanceof Date)) { return value; }
-  if (options === null || typeof object !== 'object') {
+
+  if (options === null || typeof options !== 'object') {
     options = {};
   }
+
+  let weekday = '';
+  if (options.weekday) {
+    weekday         = `${moment(value).format('ddd')} `;
+    options.weekday = undefined;
+  }
+
   options = $.extend({
     year:   'numeric',
     month:  '2-digit',
@@ -89,5 +98,12 @@ export function formatDate(value, options) {
     hour:   'numeric',
     minute: 'numeric'
   }, options);
-  return value.toLocaleString('nl-NL', options);
+
+  Object.keys(options).forEach(function(key) {
+    if (options.hasOwnProperty(key) && options[key] == null) {
+      options[key] = undefined;
+    }
+  });
+
+  return `${weekday}${value.toLocaleString('nl-NL', options)}`;
 }
