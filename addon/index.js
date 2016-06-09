@@ -99,6 +99,8 @@ export function formatDate(value, options) {
     minute: 'numeric'
   }, options);
 
+  // toLocaleString doesn't handle options with null or empty string, only undefined.
+  // if you use undefined in the template helper it will convert to null, so it has to be done over here.
   Object.keys(options).forEach(function(key) {
     if (options.hasOwnProperty(key) && options[key] == null) {
       options[key] = undefined;
