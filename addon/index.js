@@ -79,6 +79,8 @@ export function formatNumber(value, { decimals } = {}) {
 }
 
 export function formatDate(value, options) {
+  options = $.extend({}, options);
+
   if (!(value instanceof Date)) { return value; }
 
   if (options === null || typeof options !== 'object') {
