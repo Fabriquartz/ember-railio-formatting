@@ -40,8 +40,13 @@ export function toNumber(value) {
   return null;
 }
 
-export function formatNumber(value, { decimals } = {}) {
+export function formatNumber(value, { decimals, replacement } = {}) {
   const originalValue = value;
+
+  if (!value) {
+    return replacement;
+  }
+
   value = toNumber(value);
 
   if (typeof value !== 'number' || isNaN(value)) { return originalValue; }
