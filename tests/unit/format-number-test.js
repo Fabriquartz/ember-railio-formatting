@@ -9,7 +9,27 @@ test('formatNumber returns a stringified number', function(assert) {
 
 test('formatNumber returns a replacement if undefined', function(assert) {
   assert.equal(formatNumber(undefined, { replacement: '-' }), '-',
-               'Shows replacement when number is undefinded');
+               'Shows replacement when value is undefinded');
+});
+
+test('formatNumber returns a replacement if null', function(assert) {
+  assert.equal(formatNumber(null, { replacement: '-' }), '-',
+               'Shows replacement when value is null');
+});
+
+test('formatNumber returns a replacement if empty string', function(assert) {
+  assert.equal(formatNumber('', { replacement: '-' }), '-',
+               'Shows replacement when value is an empty string');
+});
+
+test('formatNumber returns a replacement if empty array', function(assert) {
+  assert.equal(formatNumber([], { replacement: '-' }), '-',
+               'Shows replacement when value is an empty array');
+});
+
+test('formatNumber returns 0 if value is 0', function(assert) {
+  assert.equal(formatNumber(0), 0,
+               'Returns 0 when value is 0');
 });
 
 test('formatNumber by default formats with same decimals', function(assert) {

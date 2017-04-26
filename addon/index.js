@@ -1,5 +1,6 @@
-import $      from 'jquery';
-import moment from 'moment';
+import $            from 'jquery';
+import { isEmpty }  from 'ember-utils';
+import moment       from 'moment';
 
 const THOUSANDS_REGEX = /(\d+)(\d{3})/;
 
@@ -43,7 +44,7 @@ export function toNumber(value) {
 export function formatNumber(value, { decimals, replacement } = {}) {
   const originalValue = value;
 
-  if (!value) {
+  if (isEmpty(value)) {
     return replacement;
   }
 
