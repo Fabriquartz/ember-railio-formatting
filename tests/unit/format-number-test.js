@@ -7,6 +7,11 @@ test('formatNumber returns a stringified number', function(assert) {
   assert.equal(formatNumber(10), '10');
 });
 
+test('formatNumber returns a replacement if undefined', function(assert) {
+  assert.equal(formatNumber(undefined, { replacement: '-' }), '-',
+               'Shows replacement when number is undefinded');
+});
+
 test('formatNumber by default formats with same decimals', function(assert) {
   assert.equal(formatNumber(10.123), '10,123');
 });
