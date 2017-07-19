@@ -20,8 +20,8 @@ export function toNumber(value) {
   if (value instanceof Date) { return value.valueOf(); }
 
   if (typeof value === 'string') {
-    const commaIndex = value.indexOf(',');
-    const dotIndex   = value.indexOf('.');
+    let commaIndex = value.indexOf(',');
+    let dotIndex   = value.indexOf('.');
     let parsed       = value;
 
     // Removes the thousands separators
@@ -42,7 +42,7 @@ export function toNumber(value) {
 }
 
 export function formatNumber(value, { decimals, replacement } = {}) {
-  const originalValue = value;
+  let originalValue = value;
 
   if (isEmpty(value)) {
     return replacement;
@@ -52,17 +52,17 @@ export function formatNumber(value, { decimals, replacement } = {}) {
 
   if (typeof value !== 'number' || isNaN(value)) { return originalValue; }
 
-  const stringValue  = value.toString();
-  const integerValue = parseInt(value);
+  let stringValue  = value.toString();
+  let integerValue = parseInt(value);
 
-  const decimalIndex = stringValue.indexOf('.');
+  let decimalIndex = stringValue.indexOf('.');
   let decimalValue = 0;
 
   if (decimalIndex !== -1) {
-    decimalValue = parseFloat('0.' + stringValue.slice(decimalIndex + 1));
+    decimalValue = parseFloat(`0.${stringValue.slice(decimalIndex + 1)}`);
   }
 
-  const integerStringValue = addThousandSeperators(integerValue);
+  let integerStringValue = addThousandSeperators(integerValue);
   let decimalStringValue;
 
   if (decimals === 0 || (decimals == null && decimalValue === 0)) {
@@ -108,7 +108,8 @@ export function formatDate(value, options) {
   }, options);
 
   // toLocaleString doesn't handle options with null or empty string, only undefined.
-  // if you use undefined in the template helper it will convert to null, so it has to be done over here.
+  // if you use undefined in the template helper it will convert to null,
+  // so it has to be done over here.
   Object.keys(options).forEach(function(key) {
     if (options.hasOwnProperty(key) && options[key] == null) {
       options[key] = undefined;
