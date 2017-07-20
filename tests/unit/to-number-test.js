@@ -28,7 +28,7 @@ test('1 000,10 to number', function(assert) {
 });
 
 test('date to number', function(assert) {
-  const date = new Date(1420096080000);
+  let date = new Date(1420096080000);
   assert.equal(toNumber(date), 1420096080000);
 });
 

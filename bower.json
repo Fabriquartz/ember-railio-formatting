@@ -1,19 +1,5 @@
 {
   "name": "ember-railio-formatting",
   "dependencies": {
-    "ember": "2.5.1",
-    "ember-cli-shims": "~0.1.1",
-    "ember-cli-test-loader": "0.2.2",
-    "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.5",
-    "ember-qunit": "~0.4.9",
-    "ember-qunit-notifications": "0.1.0",
-    "ember-resolver": "~0.1.15",
-    "jquery": "^1.11.1",
-    "loader.js": "ember-cli/loader.js#3.3.0",
-    "qunit": "~1.18.0",
-    "blanket": "~1.1.5"
-  },
-  "resolutions": {
-    "ember": "2.5.1"
   }
 }

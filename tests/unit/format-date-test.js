@@ -20,7 +20,8 @@ test('formatDate returns default options if options not set', function(assert) {
   assert.equal(formatDate(value, options), '01-01-1970 00:01');
 });
 
-test('formatDate returns default options if options is not an object', function(assert) {
+test('formatDate returns default options if options is not an object',
+function(assert) {
   let value   = new Date(111111);
   let options = '';
 
