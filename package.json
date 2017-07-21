@@ -1,6 +1,6 @@
 {
   "name": "ember-railio-formatting",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Addon for formatting numbers and date.",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": "Fabriquartz/ember-railio-formatting",
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   },
