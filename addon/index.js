@@ -104,7 +104,8 @@ export function formatDate(value, options) {
     month:  '2-digit',
     day:    '2-digit',
     hour:   'numeric',
-    minute: 'numeric'
+    minute: 'numeric',
+    locale: 'nl-NL'
   }, options);
 
   // toLocaleString doesn't handle options with null or empty string, only undefined.
@@ -116,5 +117,5 @@ export function formatDate(value, options) {
     }
   });
 
-  return `${weekday}${value.toLocaleString('nl-NL', options)}`;
+  return `${weekday}${value.toLocaleString(options.locale, options)}`;
 }
