@@ -23,7 +23,9 @@ branches:
     - master
 
 env:
-  - EMBER_TRY_SCENARIO=default
+  - EMBER_TRY_SCENARIO=ember-lts-2.16
+  - EMBER_TRY_SCENARIO=ember-lts-2.12
+  - EMBER_TRY_SCENARIO=ember-default
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
@@ -33,7 +35,6 @@ matrix:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
-before_install:
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -45,4 +46,4 @@ install:
   - bower install
 
 script:
-  - ember try $EMBER_TRY_SCENARIO test
+  - ember try:one $EMBER_TRY_SCENARIO test
