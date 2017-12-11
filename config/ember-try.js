@@ -3,10 +3,12 @@ module.exports = {
   scenarios: [
     {
       name: 'ember-lts-2.12',
+      bower: {},
       npm: { devDependencies: { 'ember-source': '~2.12.0' } }
     },
     {
       name: 'ember-lts-2.16',
+      bower: {},
       npm: { devDependencies: { 'ember-source': '~2.16.0' } }
     },
     {
@@ -29,6 +31,7 @@ module.exports = {
     },
     {
       name: 'ember-default',
+      bower: {},
       npm: { devDependencies: {} }
     }
   ]
