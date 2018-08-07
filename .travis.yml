@@ -17,18 +17,24 @@ addons:
 cache:
   directories:
     - node_modules
+    - $HOME/.npm
 
 branches:
   only:
     - master
 
 env:
-  - EMBER_TRY_SCENARIO=ember-lts-2.16
-  - EMBER_TRY_SCENARIO=ember-lts-2.12
-  - EMBER_TRY_SCENARIO=ember-default
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
+  global:
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
+  matrix:
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-lts-2.16
+    - EMBER_TRY_SCENARIO=ember-lts-2.18
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
+    - EMBER_TRY_SCENARIO=ember-default
 
 matrix:
   fast_finish: true
@@ -38,12 +44,8 @@ matrix:
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - "npm install -g npm@^4"
-  - "npm install -g bower"
-
-install:
-  - npm install --no-optional
-  - bower install
+  - npm config set spin false
+  - npm install -g npm@4
 
 script:
-  - ember try:one $EMBER_TRY_SCENARIO test
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
