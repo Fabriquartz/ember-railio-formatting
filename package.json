@@ -3,6 +3,7 @@
   "version": "0.0.23",
   "description": "Addon for formatting numbers and date.",
   "scripts": {
+    "lint:js": "eslint .",
     "start": "ember serve",
     "build": "ember build",
     "test": "ember test",
