@@ -1,6 +1,6 @@
-import $            from 'jquery';
-import { isEmpty }  from 'ember-utils';
-import moment       from 'moment';
+import { assign }  from '@ember/polyfills';
+import { isEmpty } from 'ember-utils';
+import moment      from 'moment';
 
 const THOUSANDS_REGEX = /(\d+)(\d{3})/;
 
@@ -85,7 +85,7 @@ export function formatNumber(value, { decimals, replacement } = {}) {
 }
 
 export function formatDate(value, options) {
-  options = $.extend({}, options);
+  options = assign({}, options);
 
   if (!(value instanceof Date)) { return value; }
 
@@ -99,7 +99,7 @@ export function formatDate(value, options) {
     options.weekday = undefined;
   }
 
-  options = $.extend({
+  options = assign({
     year:   'numeric',
     month:  '2-digit',
     day:    '2-digit',
