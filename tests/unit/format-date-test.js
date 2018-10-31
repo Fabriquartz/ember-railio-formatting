@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { formatDate } from 'ember-railio-formatting';
+import { formatDate }   from 'ember-railio-formatting';
 
 module('Unit | formateDate');
 

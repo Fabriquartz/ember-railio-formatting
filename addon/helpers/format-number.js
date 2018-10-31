@@ -1,4 +1,4 @@
-import Helper from 'ember-helper';
+import Helper           from '@ember/component/helper';
 import { formatNumber } from 'ember-railio-formatting';
 
 export default Helper.extend({
