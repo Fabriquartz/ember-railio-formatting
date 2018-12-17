@@ -1,6 +1,6 @@
 {
   "name": "ember-railio-formatting",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Addon for formatting numbers and date.",
   "scripts": {
     "lint:js": "eslint .",
