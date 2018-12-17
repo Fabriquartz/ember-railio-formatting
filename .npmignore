@@ -12,9 +12,12 @@
 .watchmanconfig
 .travis.yml
 bower.json
-ember-cli-build.js
-testem.js
-yarn.lock
+/CONTRIBUTING.md
+/ember-cli-build.js
+/testem.js
+/tests/
+/yarn.lock
+.gitkeep
 
 # ember-try
 .node_modules.ember-try/
