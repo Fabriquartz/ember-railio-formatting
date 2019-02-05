@@ -18,7 +18,7 @@ module.exports = function() {
           },
           npm: {
             devDependencies: {
-              '@ember/jquery': '^0.5.1',
+              '@ember/jquery': '^0.6.0',
               'ember-source':  '~2.16.0'
             }
           },
@@ -31,8 +31,21 @@ module.exports = function() {
           },
           npm: {
             devDependencies: {
-              '@ember/jquery': '^0.5.1',
+              '@ember/jquery': '^0.6.0',
               'ember-source':  '~2.18.0'
+            }
+          },
+          bower: {}
+        },
+        {
+          name: 'ember-lts-3.4',
+          env:  {
+            EMBER_OPTIONAL_FEATURES: JSON.stringify({ 'jquery-integration': true })
+          },
+          npm: {
+            devDependencies: {
+              '@ember/jquery': '^0.6.0',
+              'ember-source':  '~3.4.0'
             }
           },
           bower: {}
@@ -80,7 +93,7 @@ module.exports = function() {
           },
           npm: {
             devDependencies: {
-              '@ember/jquery': '^0.5.1'
+              '@ember/jquery': '^0.6.0'
             }
           },
           bower: {}
