@@ -3,7 +3,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
   extends: [
@@ -14,6 +14,7 @@ module.exports = {
     browser: true,
     es6: true
   },
+  plugins: ['ember'],
   rules: {
     "array-bracket-spacing": "off",
     "object-curly-spacing":  ["error", "always"],
@@ -29,7 +30,8 @@ module.exports = {
 
     "max-statements-per-line": "off",
     "new-cap":                 "off",
-    "operator-linebreak":      "off"
+    "operator-linebreak":      "off",
+    "ember/no-jquery":         "error"
   },
   overrides: [
     // node files
@@ -51,8 +53,7 @@ module.exports = {
         'tests/dummy/app/**'
       ],
       parserOptions: {
-        sourceType: 'script',
-        ecmaVersion: 2015
+        sourceType: 'script'
       },
       env: {
         browser: false,
