@@ -8,10 +8,12 @@ This README outlines the details of collaborating on this Ember addon.
 * `cd ember-railio-formatting`
 * `npm install`
 
-## Running
+## Requirements
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* Ember.js v3.16 or above
+* Ember CLI v2.13 or above
+* Node.js v10 or above
+
 
 ## Running Tests
 
