@@ -1,5 +1,5 @@
 import { assign }  from '@ember/polyfills';
-import { isEmpty } from 'ember-utils';
+import { isEmpty } from '@ember/utils';
 import moment      from 'moment';
 
 const THOUSANDS_REGEX = /(\d+)(\d{3})/;
@@ -112,7 +112,8 @@ export function formatDate(value, options) {
   // if you use undefined in the template helper it will convert to null,
   // so it has to be done over here.
   Object.keys(options).forEach(function(key) {
-    if (options.hasOwnProperty(key) && options[key] == null) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (options.hasOwnProperty(key) && options[key] == null) { 
       options[key] = undefined;
     }
   });
