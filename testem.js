@@ -1,4 +1,5 @@
-/* eslint-disable camelcase */
+'use strict';
+
 module.exports = {
   test_page:        'tests/index.html?hidepassed',
   disable_watching: true,
@@ -8,7 +9,8 @@ module.exports = {
   launch_in_dev: [
     'Chrome'
   ],
-  browser_args: {
+  browser_start_timeout: 120,
+  browser_args:          {
     Chrome: {
       ci: [
         // --no-sandbox is needed when running Chrome inside a container
