@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = {
-  root:          true,
-  parser:        'babel-eslint',
+  root: true,
+  parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion:  2018,
-    sourceType:   'module',
+    ecmaVersion: 2018,
+    sourceType: 'module',
     ecmaFeatures: {
       legacyDecorators: true,
     },
@@ -19,6 +19,7 @@ module.exports = {
   env: {
     browser: true,
   },
+  rules: {},
   overrides: [
     // node files
     {

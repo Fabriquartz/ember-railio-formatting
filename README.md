@@ -1,28 +1,38 @@
-# ember-railio-formatting
+ember-railio-formatting
+==============================================================================
 
-This README outlines the details of collaborating on this Ember addon.
+[Short description of the addon.]
 
-## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-railio-formatting`
-* `npm install`
-
-## Requirements
+Compatibility
+------------------------------------------------------------------------------
 
 * Ember.js v3.20 or above
 * Ember CLI v3.20 or above
 * Node.js v12 or above
 
 
-## Running Tests
+Installation
+------------------------------------------------------------------------------
 
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
+```
+ember install ember-railio-formatting
+```
 
-## Building
 
-* `ember build`
+Usage
+------------------------------------------------------------------------------
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+[Longer description of how to use the addon in apps.]
+
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).
