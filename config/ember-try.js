@@ -29,6 +29,7 @@ module.exports = async function () {
           devDependencies: {
             'ember-source': await getChannelURL('release'),
             'ember-auto-import': '^2.0.0',
+            webpack: '^5.0.0',
           },
         },
       },
