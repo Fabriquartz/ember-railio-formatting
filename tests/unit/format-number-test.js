@@ -55,15 +55,31 @@ module('Unit | formatNumber', function () {
   });
 
   test('formatNumber formats by decimals', function (assert) {
-    assert.equal(
-      formatNumber(10.12, { decimals: 2 }),
-      '10,12',
-      'slices decimals'
-    );
-    assert.equal(
-      formatNumber(10.2, { decimals: 2 }),
-      '10,20',
-      'fills decimals'
-    );
+    assert.expect(101);
+
+    assert.equal(formatNumber(10.121, { decimals: 2 }), '10,12');
+    assert.equal(formatNumber(10.2, { decimals: 2 }), '10,20');
+
+    for (let i = 0; i < 94; i++) {
+      let number = i;
+
+      assert.equal(
+        formatNumber(number / 100, { decimals: 1 }),
+        `0,${Math.round(number / 10)}`,
+        'slices decimals'
+      );
+    }
+
+    assert.equal(formatNumber(0.95, { decimals: 1 }), '1,0');
+    assert.equal(formatNumber(0.96, { decimals: 1 }), '1,0');
+    assert.equal(formatNumber(0.97, { decimals: 1 }), '1,0');
+    assert.equal(formatNumber(0.98, { decimals: 1 }), '1,0');
+    assert.equal(formatNumber(0.99, { decimals: 1 }), '1,0');
+  });
+
+  test('formatNumber formats a large number', function (assert) {
+    assert.equal(formatNumber(1600000.987), '1 600 000,987');
+    assert.equal(formatNumber(1600000.987, { decimals: 2 }), '1 600 000,99');
+    assert.equal(formatNumber(1600000.987, { decimals: 4 }), '1 600 000,9870');
   });
 });

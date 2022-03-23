@@ -1,6 +1,7 @@
 import { assign } from '@ember/polyfills';
 import { isEmpty } from '@ember/utils';
 import moment from 'moment';
+import { A } from '@ember/array';
 
 const THOUSANDS_REGEX = /(\d+)(\d{3})/;
 
@@ -58,36 +59,23 @@ export function formatNumber(value, { decimals, replacement } = {}) {
     return originalValue;
   }
 
-  let stringValue = value.toString();
-  let integerValue = parseInt(value);
+  let [int, dec] = `${value}`.split('.');
 
-  let decimalIndex = stringValue.indexOf('.');
-  let decimalValue = 0;
+  decimals = decimals || (dec && dec.length) || 0;
 
-  if (decimalIndex !== -1) {
-    decimalValue = parseFloat(`0.${stringValue.slice(decimalIndex + 1)}`);
+  let factor = Math.pow(10, decimals);
+  value = Math.round(value * factor) / factor;
+
+  [int, dec] = `${value}`.split('.');
+
+  if ((!dec && decimals > 0) || (dec && dec.length !== decimals)) {
+    dec = dec || '0';
+    dec = `${dec}${new Array(decimals - dec.length).fill(0).join('')}`;
   }
 
-  let integerStringValue = addThousandSeperators(integerValue);
-  let decimalStringValue;
+  int = addThousandSeperators(int);
 
-  if (decimals === 0 || (decimals == null && decimalValue === 0)) {
-    return integerStringValue;
-  }
-
-  if (decimals == null) {
-    decimalStringValue = decimalValue.toString().slice(2);
-  } else {
-    decimalStringValue = decimalValue.toFixed(decimals).slice(2);
-  }
-
-  let negativeZero = '';
-
-  if (integerValue === 0 && value < 0) {
-    negativeZero = '-';
-  }
-
-  return `${negativeZero}${integerStringValue},${decimalStringValue}`;
+  return A([int, dec]).compact().join(',');
 }
 
 export function formatDate(value, options) {
