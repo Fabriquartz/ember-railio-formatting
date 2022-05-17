@@ -62,8 +62,10 @@ export function formatNumber(value, { decimals, replacement } = {}) {
   let [int, dec] = `${value}`.split('.');
 
   decimals = decimals || (dec && dec.length) || 0;
+  decimals = decimals > 10 ? 10 : decimals;
 
   let factor = Math.pow(10, decimals);
+
   value = Math.round(value * factor) / factor;
 
   [int, dec] = `${value}`.split('.');
