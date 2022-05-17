@@ -88,4 +88,12 @@ module('Unit | formatNumber', function () {
       '1 600 000,9870'
     );
   });
+
+  test('formatNumber handles up to 10 decimals', function (assert) {
+    assert.strictEqual(formatNumber(1, { decimals: 10 }).length, 12);
+    assert.strictEqual(formatNumber(1, { decimals: 11 }).length, 12);
+
+    assert.strictEqual(formatNumber(1.0123456789), '1,0123456789');
+    assert.strictEqual(formatNumber(1.01234567895), '1,0123456790');
+  });
 });
