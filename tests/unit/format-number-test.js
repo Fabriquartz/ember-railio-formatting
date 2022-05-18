@@ -96,4 +96,13 @@ module('Unit | formatNumber', function () {
     assert.strictEqual(formatNumber(1.0123456789), '1,0123456789');
     assert.strictEqual(formatNumber(1.01234567895), '1,0123456790');
   });
+
+  test('Ignore giant numbers', function (assert) {
+    assert.strictEqual(formatNumber(1.56e1, { decimals: 2 }), '15,60');
+    assert.strictEqual(formatNumber(1.56e20, { decimals: 2 }).length, 30);
+    assert.strictEqual(
+      Math.round(formatNumber(1.56e25, { decimals: 2 }) / 1e25),
+      2
+    );
+  });
 });
