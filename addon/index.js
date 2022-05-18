@@ -59,6 +59,10 @@ export function formatNumber(value, { decimals, replacement } = {}) {
     return originalValue;
   }
 
+  if (`${value}`.includes('e')) {
+    return originalValue;
+  }
+
   let [int, dec] = `${value}`.split('.');
 
   decimals = decimals || (dec && dec.length) || 0;
